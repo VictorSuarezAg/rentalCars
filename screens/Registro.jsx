@@ -40,9 +40,9 @@ export default function Registro({navigation, route}) {
                 control={control}
                 rules={{
                 required: true,
-                minLength: 2,
-                maxLength: 30,
-                pattern: /^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/
+                minLength: 3,
+                maxLength: 16,
+                pattern: /^[a-z0-9]{3,16}$/
                 }}
                 render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput 
@@ -58,9 +58,9 @@ export default function Registro({navigation, route}) {
                 name="usuario"
             />
             {errors.usuario?.type == 'required' && <Text style={{color:'red'}}>Este campo es requerido</Text>}
-            {errors.usuario?.type == 'maxLength' && <Text style={{color:'red'}}>El usuario debe tener menos de 30 caracteres</Text>}
-            {errors.usuario?.type == 'minLength' && <Text style={{color:'red'}}>El usuario debe tener mas de 30 caracteres</Text>}
-            {errors.usuario?.type == 'pattern' && <Text style={{color:'red'}}>Solo se permiten letras y espacios</Text>}
+            {errors.usuario?.type == 'maxLength' && <Text style={{color:'red'}}>El usuario debe tener menos de 16 caracteres</Text>}
+            {errors.usuario?.type == 'minLength' && <Text style={{color:'red'}}>El usuario debe tener mas de 3 caracteres</Text>}
+            {errors.usuario?.type == 'pattern' && <Text style={{color:'red'}}>Solo se permiten letras y numeros</Text>}
             
             <Controller
                 control={control}
@@ -85,7 +85,7 @@ export default function Registro({navigation, route}) {
             />
             {errors.nombre?.type == 'required' && <Text style={{color:'red'}}>Este campo es requerido</Text>}
             {errors.nombre?.type == 'maxLength' && <Text style={{color:'red'}}>El nombre debe tener menos de 30 caracteres</Text>}
-            {errors.nombre?.type == 'minLength' && <Text style={{color:'red'}}>El nombre debe tener mas de 30 caracteres</Text>}
+            {errors.nombre?.type == 'minLength' && <Text style={{color:'red'}}>El nombre debe tener mas de 2 caracteres</Text>}
             {errors.nombre?.type == 'pattern' && <Text style={{color:'red'}}>Solo se permiten letras y espacios</Text>}
             
             <Controller

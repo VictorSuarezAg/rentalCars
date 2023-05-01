@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Perfil from './Perfil.jsx';
 import Renta  from './Renta.jsx';
+import Carros from './Carros.jsx';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,12 +26,22 @@ export default function RentalCars() {
         }}
       />
       <Tab.Screen
+        name="Carros"
+        component={Carros}
+        options={{
+          tabBarLabel: 'Carros',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="car-hatchback" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Renta"
         component={Renta}
         options={{
           tabBarLabel: 'Renta',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="check" color={color} size={size} />
+            <MaterialCommunityIcons name="car-key" color={color} size={size} />
           ),
         }}
       />
